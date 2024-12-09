@@ -49,7 +49,7 @@ for i in range(1050):
 
     if i < 25:
 
-        w1, w2, w3, w4 = NULL_ROT, NULL_ROT, NULL_ROT, 1.1*NULL_ROT
+        w1, w2, w3, w4 = NULL_ROT, NULL_ROT, 1.4*NULL_ROT, 1.1*NULL_ROT
     else:
         w1, w2, w3, w4 = NULL_ROT, NULL_ROT, NULL_ROT, NULL_ROT
     # print(drone.vx)

@@ -1,6 +1,6 @@
 import gym
 import numpy as np
-from simple_drone_env import SimpleDroneEnv
+from betterenv import SimpleDroneEnv
 
 #Here is the test to check:
 #if when the a number in the action array is greater than 1
