@@ -13,6 +13,7 @@ L = 0.225
 G = 9.8
 
 NULL_ROT = 620.2943
+# NULL_ROT = 1.1e10
 
 # Inertia
 IXX = 4.856e-3

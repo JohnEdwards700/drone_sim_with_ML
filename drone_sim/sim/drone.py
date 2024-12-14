@@ -113,6 +113,36 @@ class Drone:
         self.p, self.q, self.r = 0, 0, 0
 
         print("LOG: The Drone is dead. Reset Simulation")
+        
+    def command(self, roll=0, pitch=0, yaw=0, thrust=0):
+        # Convert commands to motor speeds
+        self.w1 = thrust + roll - pitch + yaw
+        self.w2 = thrust - roll - pitch - yaw
+        self.w3 = thrust + roll + pitch - yaw
+        self.w4 = thrust - roll + pitch + yaw
+        self.update()
+    
+    def takeoff(self, target_altitude):
+        """Simulate drone takeoff to a target altitude."""
+        while self.drone.z < target_altitude:
+            self.drone.step([100, 100, 100, 100])  # Example constant velocities
+            self.drone.update()
+            print(f"Altitude: {self.drone.z:.2f}")
+    
+    def hover(self, duration):
+        """Hover at the current position for a given duration (seconds)."""
+        for _ in range(int(duration / DT)):
+            self.drone.step([100, 100, 100, 100])  # Balanced velocities
+            self.drone.update()
+            print(f"Position: {self.drone.x:.2f}, {self.drone.y:.2f}, {self.drone.z:.2f}")
+
+    def move_forward(self, distance):
+        """Move forward by a certain distance."""
+        initial_x = self.drone.x
+        while self.drone.x < initial_x + distance:
+            self.drone.step([120, 100, 120, 100])  # Uneven velocities to tilt forward
+            self.drone.update()
+            print(f"Position: {self.drone.x:.2f}, {self.drone.y:.2f}, {self.drone.z:.2f}")
     
     def step(self, velocities):
         """Function to step, i.e. set the angular velocties, to be called externally by the user"""
