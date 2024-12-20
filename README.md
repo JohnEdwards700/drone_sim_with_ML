@@ -1,6 +1,32 @@
-# Drone_Sim [WIP]
-A simple Drone dynamics simulation written in Python.
+# Drone Flight with Reinforcement Learning
+## Contribution
+### Goal for Contribution
+The goal of this project is to use Reinforcement Learning to control a quad motor drone. Not only having a autonomous model fly the drone but make it to a destination with obstacles in the way. Many options for RL are available but the most reliable and quick to train was a PPO (Proximal Policy Optimization) model. Using the autonomous model my goal is to provide somewhat smooth flight while heading to a goal position.
 
+![Screenshot 2024-12-13 180738](https://github.com/user-attachments/assets/18e23ad8-f716-4320-beb4-3c513484b0ee)
+
+### Here is a list of things I contributed to the library and for my project
+1. Graphics: implementation for other objects to be plotted in matplot:
+   * Functions for rendering Object and Goals
+2. Modified environment: adapted environment training models, usable for stablebaseline3 library and pytorch
+   * betterenv: first iteration where convert library for use in models, major changes for additional observation, collision, and reward functions
+   * simpleenv: modification to betterenv, but reward is simplified because of problems with fault rewarding for incorrectness
+4. Model: Added PPO model training/result files
+5. test file: modification to test file
+   
+### Results for Project
+[Drone_Reinforcement_Learning.pdf](https://github.com/user-attachments/files/18215687/Drone_Reinforcement_Learning.pdf)
+
+
+
+https://github.com/user-attachments/assets/79a0f737-520e-48b7-9f17-b48c5e68f6d3
+
+
+
+### v Below is the Default Library provided by the previous developers v
+
+# Drone_sim [WIP]
+A simple Drone dynamics simulation written in Python.
 ## Structure
 The repository is divided into 3 main sub-modules:
 1. `sim`: The files that simulate the Rigid Body Dynamics, Sensors etc. are here.
